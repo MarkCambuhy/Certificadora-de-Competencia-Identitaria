@@ -1,9 +1,4 @@
 const Home = () => {
-<<<<<<< Updated upstream
-  return(
-    <>
-      <p>Teste</p>
-=======
   const [ola, setOla] = useState("");
   const [users, setUsers] = useState([]);
   
@@ -38,7 +33,6 @@ const Home = () => {
         }
       </ul>
         
->>>>>>> Stashed changes
     </>
   );
 }
