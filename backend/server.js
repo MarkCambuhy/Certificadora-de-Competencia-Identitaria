@@ -1,22 +1,15 @@
 import express from "express";
 import cors from "cors";
-
-import { UserController } from "./controllers/UserController.js";
+import routes from "./src/routes/routes.js";
 
 const app = express();
 
-app.use(cors);
+app.use(cors());
 app.disable('x-powered-by');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.get("/", (req, res) => {
-  res.send("Hello world!");
-});
-
-app.post("/registration", (req, res) => UserController.registration(req, res));
-
-app.get("/user", (req, res) => UserController.getUser(req, res));
+app.use("/", routes);
 
 app.use((req, res) => {
   res.status(404).json({ 
