@@ -5,26 +5,27 @@ const prisma = new PrismaClient();
 class UserModel {
   static async insert(user) {
     const { firstName, lastName, email, password } = user;
-    const userExists = await this.findByEmail(email);
+    try {
+      const userExists = await prisma.user.findUnique({ where: { email } });
     
-    if(userExists === null) {
-      const newUser = await prisma.user.create({
-        data: {
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          password: password,
-        },
-      });
-      return { "status": 201, "message": "created", "userID": newUser.id };
+      if(userExists === null) {
+        const newUser = await prisma.user.create({
+          data: {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+          },
+        });
+        return { "status": 201, "message": "Usuário criado!" };
+      }
+      else {
+        return { "status": 401, "message": "Usuário já existe!" };
+      }
     }
-    else {
-      return { "status": 401, "message": "User already exists" };
+    catch (error) {
+      return {"status": 500, "message": error }
     }
-  }
-
-  static async findByEmail(email) {
-    return await prisma.user.findUnique({ where: { email } });
   }
 }
 

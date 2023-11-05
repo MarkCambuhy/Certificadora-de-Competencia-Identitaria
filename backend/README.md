@@ -1,1 +1,6 @@
-# Parte Backend
+# Backend
+
+## Prisma
+### Estrutura do arquivo .env
+      DATABASE_URL="postgresql://USER:PASSWORD@localhost:5432/DATABASE?schema=public"
+
