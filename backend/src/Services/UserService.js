@@ -1,32 +1,34 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
-class UserModel {
+class UserService {
   static async insert(user) {
     const { firstName, lastName, email, password } = user;
     try {
       const userExists = await prisma.user.findUnique({ where: { email } });
     
       if(userExists === null) {
+        const encryptedPassword = await bcrypt.hash(password, 10);
         const newUser = await prisma.user.create({
           data: {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: password,
+            firstName,
+            lastName,
+            email,
+            password: encryptedPassword,
           },
         });
-        return { "status": 201, "message": "Usuário criado!" };
+        return "Usuário criado!";
       }
       else {
-        return { "status": 401, "message": "Usuário já existe!" };
+        return "Usuário já existe!";
       }
     }
     catch (error) {
-      return {"status": 500, "message": error }
+      return error;
     }
   }
 }
 
-export { UserModel }
+export { UserService }
