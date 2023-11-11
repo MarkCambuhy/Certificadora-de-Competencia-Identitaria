@@ -4,11 +4,21 @@ import "./global.css";
 
 // Pages
 import Home from "./pages/Home";
+import Registration from "./pages/Registration";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Home />,
+  },
+  {
+    path: '/signup/createaccount',
+    element: <Registration />
+  },
+  {
+    path: '/signin/identifier',
+    element: <Login />
   },
 ]);
 
