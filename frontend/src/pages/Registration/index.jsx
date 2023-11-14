@@ -40,7 +40,7 @@ const Registration = () => {
               <input type="text" id="lastName" value={lastName} onChange={(evt) => setLastName(evt.target.value)} />
             </div>
             <div>
-              <label htmlFor="email">E-mail</label>
+              <label htmlFor="email">Email</label>
               <input type="email" id="email" value={email} onChange={(evt) => setEmail(evt.target.value)} />
             </div>
             <div>
