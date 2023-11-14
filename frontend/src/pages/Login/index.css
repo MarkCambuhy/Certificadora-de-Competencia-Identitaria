@@ -4,80 +4,119 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .loginStyle > section {
-  background-color: var(--bg-color2);
+  flex: 1;
+}
+
+.sectionBg {
+  background-image: url("../../assets/bons-fluidos-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.dataSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  gap: 1em;
+}
+
+.dataSection > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+
+.loginLogoContainer {
+  display: flex;
+  align-items: center;
+  gap: .8em;
+}
+
+.loginLogoContainer > p {
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 16px;
+  color: #E01F4C;
+}
+
+.loginTitle {
+  color: #E01F4C;
+  font-weight: 700;
+  font-size: 44px;
+}
+
+.formContainer {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  width: 628px;
-  height: 100%;
-  max-height: 390px;
-  padding: 15px 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
 }
 
-.logoContainer {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loginFormContainer {
-  width: 100%;
-  height: 100%;
+.formContainer > div {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
 }
 
-.loginFormContainer > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: .5em;
+.formContainer > div > label {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-.loginFormContainer > div > label {
-  color: var(--color-gray);
-  text-align: right;
-  flex-basis: 10%;
-}
-
-.loginFormContainer > div > input {
-  flex-basis: 90%;
+.formContainer > div > input {
   outline: none;
-  height: 30px;
-  padding-left: 10px;
-  background-color: var(--bg-color2);
-  border: 1px solid var(--border-color);
-  color: var(--color-gray);
-  border-radius: 5px;
-}
-
-.btnLoginStyle {
-  padding: 10px 40px;
-  background-color: var(--bg-color2);
-  border: 1px solid var(--border-color);
-  color: var(--color-gray);
-  font-weight: 500;
-  letter-spacing: .1em;
-  border-radius: 6px;
-  margin-top: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #000000;
+  height: 25px;
   transition: 1s;
 }
 
-.btnLoginStyle:hover {
-  background-color: var(--btn-hover);
-  cursor: pointer;
+.formContainer > div > input:focus {
+  height: 45px;
 }
 
-.LoginMessage {
+.btnLoginStyle {
+  width: 328px;
+  height: 50px;
+  background-color: #E01F4C;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 8px;
+  color: #FFFFFF;
+  border: none;
+  transition: .5s;
+}
+
+.btnLoginContainer {
+  align-items: center;
+  justify-content: center;
+}
+
+.btnLoginStyle:hover {
+  cursor: pointer;
+  background-color: #f8063f;
+}
+
+.loginMessage {
+  text-align: center;
   font-size: 13px;
-  color: var(--error-msg-color);
+  color: #ff0000;
+  font-weight: 500;
+}
+
+.registrationRedirect {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.registrationRedirect > p > span {
+  text-decoration: underline;
+  cursor: pointer;
 }
