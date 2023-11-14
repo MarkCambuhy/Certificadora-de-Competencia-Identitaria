@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=RocknRoll+One&display=swap');
 
 * {
   margin: 0;
@@ -19,6 +19,5 @@ body {
   width: 100vw;
   min-width: 270px;
   height: 100vh;
-  background-color: var(--bg-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
