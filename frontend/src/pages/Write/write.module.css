@@ -1,11 +1,99 @@
 .container {
   width: 100vw;
+  min-height: 85vh;
+  height: 100%;
   overflow-x: hidden;
   display: flex;
   justify-content: center;
 }
 
 .content {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   max-width: 680px;
   width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+
+.ql-toolbar {
+  background-color: #e01f4c;
+  height: 300px;
+}
+
+#publish {
+  width: fit-content;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  align-self: flex-end;
+  color: #fff;
+  background-color: #e01f4c;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#upload {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+#title {
+  border: none;
+  outline: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #d9d9d9;
+}
+
+#image {
+  display: none;
+}
+
+#test {
+  stroke: #94a3b8;
+  transition: ease 0.3s;
+}
+
+#test:hover {
+  stroke: #02867e;
+}
+/* 
+#quillConainer {
+  min-height: 300px;
+}
+
+#editor {
+  height: auto;
+  border: none;
+} */
+
+.imageContainer {
+  width: 100%;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  text-align: center; /* Centraliza o conteúdo na horizontal */
+  overflow: hidden;
+}
+
+#imageContent {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto; /* Centraliza a imagem na horizontal */
 }

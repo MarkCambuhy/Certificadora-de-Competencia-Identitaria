@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=RocknRoll+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=RocknRoll+One&display=swap");
 
 * {
   margin: 0;
@@ -19,5 +19,6 @@ body {
   width: 100vw;
   min-width: 270px;
   height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
 }
