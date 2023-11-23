@@ -1,0 +1,11 @@
+.container {
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: 680px;
+  width: 100%;
+}
