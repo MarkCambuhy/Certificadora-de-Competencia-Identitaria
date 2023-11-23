@@ -7,7 +7,7 @@ class UserController {
       const response = await UserService.insert(newUser);
       
       switch(response) {
-        case "Usuário criado!":
+        case "Usuário criado com sucesso!":
           return res.status(201).json({"message": response});
         case "Usuário já existe!":
           return res.status(401).json({"message": response});

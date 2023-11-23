@@ -11,13 +11,19 @@ class UserService {
     
       if(userExists === null) {
         const encryptedPassword = await bcrypt.hash(password, 10);
-        const newUser = await prisma.user.create({
+        await prisma.user.create({
           data: {
             firstName,
             lastName,
             email,
             password: encryptedPassword,
+            profile: {
+              create: {}
+            }
           },
+          include: {
+            profile: true
+          }
         });
         return "Usuário criado com sucesso!";
       }
