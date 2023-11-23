@@ -10,7 +10,7 @@ const Login = () => {
   const [message, setMessage] = useState("");
 
   const handlingLogin = (evt) => {
-
+    evt.preventDefault();
   }
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Login = () => {
             </div>
             <h1 className="loginTitle">Seja bem-vindo de volta!</h1>
           </div>
-          <form method="POST" action="/signin/identifier" className="formContainer">
+          <form method="POST" onSubmit={(evt) => handlingLogin(evt)} className="formContainer">
             <div>
               <label htmlFor="email">Email</label>
               <input type="email" id="email" value={email} onChange={(evt) => setEmail(evt.target.value)} />
@@ -40,7 +40,7 @@ const Login = () => {
               <input type="password" id="password" value={password} onChange={(evt) => setPassword(evt.target.value)} />
             </div>
             <div className="btnLoginContainer">
-              <button type="submit" onClick={(evt) => handlingLogin(evt)} className="btnLoginStyle">Entrar</button>
+              <button type="submit" className="btnLoginStyle">Entrar</button>
             </div>
             <div>
               <p className="loginMessage">{message}</p>

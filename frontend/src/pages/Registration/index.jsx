@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 import logo from "../../assets/bons-fluidos-30px.png";
+import axios from "axios";
 
 const Registration = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,8 +10,8 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const handlingRegistration = async (evt) => {
-    
+  const handlingRegistration = (evt) => {
+    evt.preventDefault();
   }
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Registration = () => {
             </div>
             <h1 className="registrationTitle">Cadastre-se</h1>
           </div>
-          <form method="POST" action="/signin/identifier" className="formContainer">
+          <form method="POST" onSubmit={(evt) => handlingRegistration(evt)} className="formContainer">
             <div>
               <label htmlFor="firstName">Nome</label>
               <input type="text" id="firstName" value={firstName} onChange={(evt) => setFirstName(evt.target.value)} />
@@ -48,7 +49,7 @@ const Registration = () => {
               <input type="password" id="password" value={password} onChange={(evt) => setPassword(evt.target.value)} />
             </div>
             <div className="btnRegisterContainer">
-              <button type="submit" onClick={(evt) => handlingRegistration(evt)} className="btnRegisterStyle">Cadastre-se</button>
+              <button type="submit" className="btnRegisterStyle">Cadastre-se</button>
             </div>
             <div>
               <p className="registrationMessage">{message}</p>
