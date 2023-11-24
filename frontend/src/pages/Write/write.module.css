@@ -33,6 +33,11 @@
   background-color: #e01f4c;
   padding: 6px 14px;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+#publish:hover {
+  background-color: #ec3862;
 }
 
 .sub {
@@ -57,7 +62,6 @@
   outline: none;
   font-size: 28px;
   font-weight: bold;
-  color: #d9d9d9;
 }
 
 #image {
@@ -72,15 +76,6 @@
 #test:hover {
   stroke: #02867e;
 }
-/* 
-#quillConainer {
-  min-height: 300px;
-}
-
-#editor {
-  height: auto;
-  border: none;
-} */
 
 .imageContainer {
   width: 100%;

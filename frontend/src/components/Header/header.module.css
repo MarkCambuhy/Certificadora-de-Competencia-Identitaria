@@ -24,7 +24,8 @@
   gap: 20px;
 }
 
-.buttons a {
+.buttons a,
+.logo a {
   color: inherit;
   text-decoration: none;
   text-align: center;

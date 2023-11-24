@@ -1,14 +1,16 @@
 import React from "react";
 import styles from "./header.module.css";
 import logo from "../../assets/bons-fluidos-30px.png";
+import { Navigate } from "react-router-dom";
 
 const Header = () => {
-  const authenticated = true;
+  const authenticated = false;
+
   return (
     <header className={styles.container}>
       <div className={styles.logo}>
         <img src={logo} alt="" />
-        Bons Fluidos
+        <a href="/">Bons Fluidos</a>
       </div>
       <div className={styles.buttons}>
         {authenticated ? (
@@ -29,7 +31,7 @@ const Header = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <a href="#" id={styles.entrar}>
+              <a href="/write" id={styles.entrar}>
                 Escrever
               </a>
             </div>
@@ -45,22 +47,22 @@ const Header = () => {
                 <path
                   d="M5.12104 17.8037C7.15267 16.6554 9.4998 16 12 16C14.5002 16 16.8473 16.6554 18.879 17.8037M15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10C9 8.34315 10.3431 7 12 7C13.6569 7 15 8.34315 15 10ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
                   stroke="#02867E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
-              <a href="#" id={styles.entrar}>
+              <a href="/profile" id={styles.entrar}>
                 Perfil
               </a>
             </div>
           </>
         ) : (
           <>
-            <a href="#" id={styles.entrar}>
+            <a href="/signin/identifier" id={styles.entrar}>
               Entrar
             </a>
-            <a href="#" id={styles.cadastro}>
+            <a href="/signup/createaccount" id={styles.cadastro}>
               Cadastre-se
             </a>
           </>

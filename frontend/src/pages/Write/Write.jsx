@@ -5,20 +5,19 @@ import styles from "./write.module.css";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  deleteObject,
-} from "firebase/storage";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.js";
 
 const Write = () => {
-  const [value, setValue] = useState("");
   const [imgURL, setImgURL] = useState("");
   const [progress, setProgress] = useState(0);
   const [name, setName] = useState("");
   const [file, setFile] = useState(null);
+
+  const [title, setTitle] = useState("");
+  const [value, setValue] = useState("");
+
+  const handleSubmit = () => {};
 
   useEffect(() => {
     if (file) {
@@ -76,6 +75,7 @@ const Write = () => {
             <input
               type="text"
               name="title"
+              onChange={(e) => setTitle(e.target.value)}
               id={styles.title}
               placeholder="Type your title..."
             />
@@ -94,7 +94,9 @@ const Write = () => {
               onChange={setValue}
             />
           </div>
-          <button id={styles.publish}>Publicar</button>
+          <button onClick={handleSubmit} id={styles.publish}>
+            Publicar
+          </button>
         </div>
       </div>
       <Footer />

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.apiKey, // Colocar no .env
+  apiKey: "AIzaSyA5i9RMYtWQAujags7dMDGeE8zPL5cZCiU",
   authDomain: "uploads-615a5.firebaseapp.com",
   projectId: "uploads-615a5",
   storageBucket: "uploads-615a5.appspot.com",
