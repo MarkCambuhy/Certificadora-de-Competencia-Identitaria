@@ -1,6 +1,31 @@
 import { UserService } from "../services/UserService.js";
 
 class UserController {
+
+  static async login(req, res) {
+    try {
+      const user = await prisma.user.findUnique({
+        where: { email: req.body.email },
+      });
+      if (!user) return res.status(401).json("Wrong Credentials!");
+      const passwordIsValid = await bcrypt.compare(
+        req.body.password,
+        user.password
+      );
+      if (!passwordIsValid) return res.status(401).json("Wrong Credentials!");
+      const token = createAccessToken(user);
+      res.cookie("token", token, {
+        httpOnly: true,
+        sameSite: "None",
+        secure: true,
+        maxAge: 24 * 60 * 60 * 1000,
+      });
+      res.status(200).json({ token });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
   static async registration(req, res) {
     const newUser = req.body;
     if(this.#checkFields(newUser)) {   
