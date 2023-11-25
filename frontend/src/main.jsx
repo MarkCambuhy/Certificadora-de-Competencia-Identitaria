@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import Write from "./pages/Write/Write";
+import Profile from "./pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/write",
     element: <Write />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 
