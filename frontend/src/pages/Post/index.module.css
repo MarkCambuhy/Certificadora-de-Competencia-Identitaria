@@ -89,6 +89,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    cursor: pointer;
 }
 
 #img{
@@ -158,6 +159,7 @@
     background: #f8063f;
     height: 100%;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 
