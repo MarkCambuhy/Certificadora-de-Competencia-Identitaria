@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import Write from "./pages/Write/Write";
+import Post from "./pages/Post";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
     path: "/write",
     element: <Write />,
   },
+  {
+    path: '/post',
+    element: <Post />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
