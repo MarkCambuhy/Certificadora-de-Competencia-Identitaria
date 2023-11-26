@@ -16,7 +16,6 @@ const verifyToken = (req, res, next) => {
 
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
-    console.log(req.user);
     if (req.user.role === "COLLABORATOR" || req.user.role === "ADMIN") {
       next();
     } else {

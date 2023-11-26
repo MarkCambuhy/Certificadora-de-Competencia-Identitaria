@@ -41,7 +41,7 @@ const Write = () => {
 
   useEffect(() => {
     if (file) {
-      setName(new Date().getTime() + file.name);
+      let name = new Date().getTime() + file.name;
       const storageRef = ref(storage, `images/${name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
       uploadTask.on(
