@@ -1,10 +1,18 @@
-import React from "react";
+import { React, useContext, useState, useEffect } from "react";
 import styles from "./header.module.css";
 import logo from "../../assets/bons-fluidos-30px.png";
-import { Navigate } from "react-router-dom";
 
 const Header = () => {
-  const authenticated = false;
+  let user = localStorage.getItem("user");
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (user === "null") {
+      setAuthenticated(false);
+    } else {
+      setAuthenticated(true);
+    }
+  }, [user]);
 
   return (
     <header className={styles.container}>

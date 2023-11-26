@@ -7,8 +7,12 @@ import Header from "../../components/Header/Header";
 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase.js";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Write = () => {
+  let user = localStorage.getItem("user");
+
   const [imgURL, setImgURL] = useState("");
   const [progress, setProgress] = useState(0);
   const [name, setName] = useState("");
@@ -17,7 +21,23 @@ const Write = () => {
   const [title, setTitle] = useState("");
   const [value, setValue] = useState("");
 
-  const handleSubmit = () => {};
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      axios.defaults.headers.Authorization = `Bearer ${JSON.parse(user).token}`;
+      await axios.post("http://localhost:3000/post", {
+        title: title,
+        content: value,
+        image: imgURL,
+        authorId: JSON.parse(user).id,
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (file) {

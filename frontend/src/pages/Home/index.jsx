@@ -5,44 +5,39 @@ import Header from "../../components/Header/Header";
 import Postagens from "../../components/posts/Posts";
 import picture from "../../components/posts/Posts";
 import logo from "../../assets/bons-fluidos-menu-bg.png";
-
-const posts = [
-  {
-    _id:1,
-    title:"Lorem ipsum dolor sit amet consectetur. Odio aenean amet risus et lectus.",
-    content: "Lorem ipsum dolor sit amet consectetur. Lorem non vel diam lectus. Pellentesque egestas purus nullam velit lacus. Velit cursus commodo habitasse vivamus mattis aliquam sociis duis. Augue felis adipiscing semper cursus aliquam vestibulum. Facilisi pellentesque elementum dictum mattis ut condimentum."
-  },
-  {
-    _id:2,
-    title:"Lorem ipsum dolor sit amet consectetur. Odio aenean amet risus et lectus.",
-    content: "Lorem ipsum dolor sit amet consectetur. Lorem non vel diam lectus. Pellentesque egestas purus nullam velit lacus. Velit cursus commodo habitasse vivamus mattis aliquam sociis duis. Augue felis adipiscing semper cursus aliquam vestibulum. Facilisi pellentesque elementum dictum mattis ut condimentum."
-  },
-  {
-    _id:3,
-    title:"Lorem ipsum dolor sit amet consectetur. Odio aenean amet risus et lectus.",
-    content: "Lorem ipsum dolor sit amet consectetur. Lorem non vel diam lectus. Pellentesque egestas purus nullam velit lacus. Velit cursus commodo habitasse vivamus mattis aliquam sociis duis. Augue felis adipiscing semper cursus aliquam vestibulum. Facilisi pellentesque elementum dictum mattis ut condimentum."
-  }
-]
+import axios from "axios";
 
 const Home = () => {
-  return(
+  const [posts, setPosts] = useState([]);
+
+  const fetchPosts = async () => {
+    const res = await axios.get("http://localhost:3000/post/all");
+    console.log(res.data);
+    setPosts(res.data);
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  return (
     <>
-    <Header />
-    <div className="container">
-      <div className="content">
-        <div className="background">
-          <img src={logo}/>
+      <Header />
+      <div className="container">
+        <div className="content">
+          <div className="background">
+            <img src={logo} />
+          </div>
+          <div className="noticias">
+            <span>Noticias</span>
+            <hr></hr>
+          </div>
+          <Postagens posts={posts} />
         </div>
-        <div className="noticias">
-          <p>Noticias</p>
-          <hr></hr>
-        </div>
-        <Postagens posts={posts}/>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </>
   );
-}
+};
 
 export default Home;

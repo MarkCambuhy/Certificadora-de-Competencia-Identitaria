@@ -14,4 +14,15 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-export default verifyToken;
+const verifyTokenAndAuthorization = (req, res, next) => {
+  verifyToken(req, res, () => {
+    console.log(req.user);
+    if (req.user.role === "COLLABORATOR" || req.user.role === "ADMIN") {
+      next();
+    } else {
+      res.status(403).json("You are not alowed to do that!");
+    }
+  });
+};
+
+export { verifyToken, verifyTokenAndAuthorization };

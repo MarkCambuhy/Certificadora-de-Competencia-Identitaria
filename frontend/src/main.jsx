@@ -10,6 +10,8 @@ import Write from "./pages/Write/Write";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile/Profile";
 
+import { AuthContexProvider } from "./context/authContext";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,9 +30,9 @@ const router = createBrowserRouter([
     element: <Write />,
   },
   {
-    path: '/post',
-    element: <Post />
-  }
+    path: "/post/:id",
+    element: <Post />,
+  },
   {
     path: "/profile",
     element: <Profile />,
@@ -38,5 +40,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <AuthContexProvider>
+    <RouterProvider router={router} />
+  </AuthContexProvider>
 );

@@ -1,17 +1,22 @@
 import "./Post.css";
+import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
   return (
     <div className="post">
       <div className="picture">
-        <span className="postImage">{post.image}</span>
+        <img className="postImage" src={post.image} alt="" />
       </div>
       <div className="textContent">
-        <span className="postTitle">{post.title}</span>
-        <span className="postContent">{post.content}</span>
-        <a href="#" className="verMais">
+        <h2 className="postTitle">{post.title}</h2>
+        <div className="postContent">{getText(post.content)}</div>
+        <Link className="verMais" to={`/post/${post.id}`}>
           Continue lendo...
-        </a>
+        </Link>
       </div>
     </div>
   );

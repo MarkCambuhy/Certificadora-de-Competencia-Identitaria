@@ -41,11 +41,21 @@ const deletePost = async (req, res) => {
 
 const getAllPost = async (req, res) => {
   try {
-    const post = await prisma.post.findMany();
+    const posts = await prisma.post.findMany();
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+const getPost = async (req, res) => {
+  try {
+    const post = await prisma.post.findUnique({ where: { id: req.params.id } });
+
     res.status(200).json(post);
   } catch (error) {
     res.status(500).json(error);
   }
 };
 
-export default { createPost, updatePost, deletePost, getAllPost };
+export default { createPost, updatePost, deletePost, getAllPost, getPost };

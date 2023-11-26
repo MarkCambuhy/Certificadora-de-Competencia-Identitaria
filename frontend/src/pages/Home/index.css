@@ -13,33 +13,33 @@
   margin-bottom: 80px;
 }
 
-.background{
+.background {
   margin-block: 15px;
   padding-inline: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
-  background-color: #FFF4F4;
+  background-color: #fff4f4;
 }
 
-.noticias{
+.noticias {
   margin-bottom: 20px;
 }
 
-.noticias hr{     
+.noticias hr {
   height: 1px;
   border: none;
-  color: #E01F4C;
-  background-color: #E01F4C;
+  color: #e01f4c;
+  background-color: #e01f4c;
 }
 
-.noticias p{
+.noticias span {
   font-size: 12px;
   padding-inline: 8px;
   display: block;
   max-width: 60px;
   color: white;
   justify-content: center;
-  background-color: #E01F4C;
+  background-color: #e01f4c;
 }

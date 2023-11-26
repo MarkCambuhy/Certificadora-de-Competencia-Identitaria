@@ -41,7 +41,9 @@ const deleteComment = async (req, res) => {
 
 const getAllComment = async (req, res) => {
   try {
-    const comments = await prisma.comment.findMany();
+    const comments = await prisma.comment.findMany({
+      where: { postId: req.params.id },
+    });
     res.status(200).json(comments);
   } catch (error) {
     res.status(500).json(error);
