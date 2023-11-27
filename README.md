@@ -5,6 +5,7 @@
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Ter instalado o [Git](https://git-scm.com/downloads).
+- Ter instalado o [PostgreSQL 11.15](https://www.postgresql.org/).
 - Ter instalado a última versão do [NodeJs](https://nodejs.org/en).
 
 ## 🚀 Instalando
