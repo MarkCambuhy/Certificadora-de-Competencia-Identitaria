@@ -10,7 +10,7 @@ const Profile = () => {
       <div>
         <div id="profile-container">
           <div id="profile-info">
-            <h3>Mark Cambuhy</h3>
+            <h3>FirstName LastName</h3>
             <h4>Sobre</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur. Iaculis arcu risus tempor

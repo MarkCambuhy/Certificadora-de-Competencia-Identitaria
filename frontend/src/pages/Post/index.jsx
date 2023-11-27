@@ -101,6 +101,14 @@ const Post = () => {
     fetchData();
   }, [postId]);
 
+  useEffect(() => {
+    if (comments.length > 0) {
+      fetchAuthorNames(comments).then((postsWithAuthors) => {
+        setComments(postsWithAuthors);
+      });
+    }
+  }, [comments]);
+
   const toDate = (dataString) => {
     const data = new Date(dataString);
     const dia = data.getDate();
